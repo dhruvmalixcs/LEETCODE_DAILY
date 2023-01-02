@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+       int count=0;
+       int n=word.size();
+       for(int i=0;i<n;i++){
+           if(isupper(word[i])){
+               count++;
+           }
+       }
+       if(count==0||n==1){
+           return true;
+       }
+       else if(count==n){
+           return true;
+       }
+       else if(count==1&&isupper(word[0])){
+           return true;
+       }
+       else {
+           return false;
+       }
+    }
+};
