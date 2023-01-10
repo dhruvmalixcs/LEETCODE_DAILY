@@ -1,0 +1,23 @@
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+
+class Solution{
+    private:  // make sure to pass 'ans' as reference so that it gets preserved  
+    void recTraversal(TreeNode* root1, TreeNode* root2, bool &ans){         // base case - if both roots are null then no need to do anythine i.e simply return, else if any 1 root is non null then set ans = false, and then return        
+        if(!root1 || !root2){             if(!root1 && !root2) return;            ans = false;             return;          }          // base case 2 : when the 2 roots data do not match then set ans = false, return  
+        if(root1 -> val != root2 -> val){             ans = false;             return ;         }         // recrusive left and right tree calls     
+        recTraversal(root1 -> left, root2 -> left, ans);         recTraversal(root1 -> right, root2 -> right, ans);     } public: // Main func 
+    bool isSameTree(TreeNode* root1, TreeNode* root2) {         // create a bool
+
+        bool ans = true;         // step 2 : call fun.
+        recTraversal(root1, root2, ans);         return ans;     } };
+
