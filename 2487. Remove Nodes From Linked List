@@ -1,0 +1,49 @@
+class Solution {
+public:
+    ListNode* removeNodes(ListNode* head) {
+    //deque approach
+//         deque<ListNode*>dq;
+//         ListNode* temp=head;
+//         while(temp!=NULL){
+//            if(dq.empty()){
+//             dq.push_back(temp);
+//             temp=temp->next;   
+//            }
+//            else if(temp->val>dq.back()->val){
+//                dq.pop_back();
+//            }
+//            else{
+//                dq.push_back(temp);
+//                temp=temp->next;
+//            }
+//         }
+//          ListNode*headfinal=dq.front();
+//          ListNode*tail=headfinal;
+//          dq.pop_front();
+//          while(!dq.empty()){
+//              ListNode*temp=dq.front();
+//             dq.pop_front();
+//             tail->next=temp;
+//             tail=temp;
+//          }
+// return headfinal;
+
+
+//recursive approach
+
+if(head == nullptr)
+        {
+            return nullptr;
+        }
+
+        ListNode *n = removeNodes(head->next);
+
+        if(n && head->val < n->val)
+        {
+            return n;
+        }
+
+        head->next = n;
+        return head;
+    }
+};
