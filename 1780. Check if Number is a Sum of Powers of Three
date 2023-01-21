@@ -1,0 +1,8 @@
+while(n!=1){
+               int ternary=n%3;
+               if(ternary==2){
+                   return false;
+               }
+               n=n/3;
+           }
+           return true;
