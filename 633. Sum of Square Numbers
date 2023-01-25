@@ -1,0 +1,43 @@
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        long long j=sqrt(c);
+        long long i=0;
+        bool bool1=false;
+        while(i<=j){
+            long long temp=((i*i)+(j*j));
+            if(temp==c){
+                bool1=true;
+                break;
+            }
+            else if(temp>c){
+                j--;
+            }
+            else{
+                i++;
+            }
+        }
+        return bool1;
+        // int i=0;
+        // int j=1;
+        // bool bool1;
+        // int x=i*i+j*j;
+        // while(x<=c){
+        //     if(x==c){
+        //        bool1= true;
+        //        break;
+        //     }
+        //     else if(x>c){
+        //         bool1= false;
+        //     }
+        //     else{
+        //         i++;
+        //         j++;
+        //         x=x+i*i+j*j;
+                
+        //     }
+        // }
+        // return bool1;
+    }
+    
+};
