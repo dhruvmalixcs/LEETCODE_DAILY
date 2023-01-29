@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int maximumGap(vector<int>& nums) {
+        priority_queue<int> pq;
+        vector<int>ansv;
+        int n=nums.size();
+        if(n<2){
+            return 0;
+        }
+        for(auto it:nums){
+            pq.push(it);
+        }
+        while(!pq.empty()){
+            int t=pq.top();
+            pq.pop();
+            int x=t-pq.top();
+            ansv.push_back(x);
+        }
+        int ans=*max_element(ansv.begin(),ansv.end());
+        return ans;
+    }
+};
