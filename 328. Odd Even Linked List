@@ -1,0 +1,72 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* oddEvenList(ListNode* head) {
+        // ListNode*oddtemp=head->next;
+        // ListNode*eventemp=head->next->next;
+        // if(head==NULL||head->next==NULL){
+        //     return head;
+        // }
+        
+        // while(oddtemp->next!=NULL&&oddtemp->next->next!=NULL){
+        //     oddtemp->next=oddtemp->next->next;
+        // }
+        // head->next=head->next->next;
+        // oddtemp->next=eventemp;
+        // head->next=eventemp->next;
+        // while(eventemp->next!=NULL&&eventemp->next->next!=NULL){
+        //     eventemp->next=eventemp->next->next;
+        // }
+        // while(oddtemp!=NULL&&eventemp->next!=NULL){
+        //     swap(oddtemp->val,eventemp->val);
+        //     oddtemp=oddtemp->next->next;
+        //     eventemp=eventemp->next->next;
+
+        // }
+        // ListNode*oddtemp=head->next->next;
+        // ListNode*eventemp=head->next;
+        // ListNode*temptarget=eventemp;
+        // while(oddtemp->next!=NULL&&eventemp->next->next!=NULL){
+        //    eventemp->next=eventemp->next->next; 
+        //    oddtemp->next=oddtemp->next->next;
+            
+        // }
+        // oddtemp->next=temptarget;
+
+        // return head;
+        if(head==NULL||head->next==NULL||head->next->next==NULL){
+            return head;
+        }
+        ListNode*oddhead=head;
+        ListNode*oddtail=head;
+        ListNode*evenhead=head->next;
+        ListNode*eventail=head->next;
+        
+        while(eventail!=NULL&&oddtail->next!=NULL&&eventail->next!=NULL){
+            oddtail->next=eventail->next;
+            oddtail=oddtail->next;
+            eventail->next=oddtail->next;
+            eventail=eventail->next;
+           
+        }
+        oddtail->next=evenhead;
+        return oddhead;
+
+
+
+
+
+
+
+        
+    }
+};
