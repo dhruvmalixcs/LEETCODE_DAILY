@@ -1,0 +1,31 @@
+class Solution {
+private:
+    int sumOfArray(vector<int>arr){
+        int sum=0;
+        for(auto it:arr){
+            sum=sum+it;
+        }
+        return sum;
+    }
+public:
+    int minMoves2(vector<int>& nums) {
+
+        int each=sumOfArray(nums)/nums.size();
+        int count=0;
+        // cout<<each;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]>each){
+                count+=nums[i]-each;
+            }
+            else if(nums[i]<each){
+                count+=each-nums[i];
+            }
+            else{
+                continue;
+            }
+        }
+        return count;
+
+        
+    }
+};
