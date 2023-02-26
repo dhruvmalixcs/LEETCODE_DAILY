@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int k) {
+        vector<pair<double,int>>vp;
+        vector<vector<int>>newv;
+        // vector<vector<int,int>>temp;
+        for(int i=0;i<points.size();i++)
+        {
+            int d=pow(points[i][0],2)+pow(points[i][1],2);
+            vp.push_back(make_pair(sqrt(d),i));
+        }
+
+        sort(vp.begin(),vp.end());
+        // cout<<points[0][0];
+        for(auto it:vp){
+            cout<<it.first<<it.second;
+        }
+        for(int i=0;i<k;i++){
+        vector<int>temp;
+
+            int x=vp[i].second;
+            temp.push_back(points[x][0]);
+            temp.push_back(points[x][1]);
+           newv.push_back(temp);
+        }
+        return newv;
+    }
+};
